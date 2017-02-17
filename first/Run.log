@@ -1,0 +1,2 @@
+2017-01-18 16:52:01,693 - run - INFO - path:./ ,env:dev
+2017-01-18 16:52:01,693 - run - ERROR - 该目录.找不到ConfigProfile.json文件路径
