@@ -2,7 +2,7 @@ import * as http from '../../../utils/common'
 // 获取消息 channel_id=房间号&state=状态
 export const fetchChannelCommAudit = ({ commit }, {channel_id, state, starttime, endtime, pageindex, pagesize, vue}) => {
   http.post({
-    url: '/Manager/ChannelCommAudit/GetChannelCommAudit?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {channel_id, state, starttime, endtime, pageindex, pagesize},
     succ (json) {
       if (json.result === 1) {
@@ -20,7 +20,7 @@ export const fetchChannelCommAudit = ({ commit }, {channel_id, state, starttime,
 // updataState
 export const updataState = ({ commit }, {channel_id, state, vue}) => {
   http.post({
-    url: '/Manager/ChannelCommAudit/UpdateAuditState?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {channel_id, state},
     succ (json) {
       if (json.result === 1) {
@@ -41,7 +41,7 @@ export const updataState = ({ commit }, {channel_id, state, vue}) => {
 // fetchGetChannelConmmList 获取详情
 export const fetchGetChannelConmmList = ({ commit }, {channel_id, liveid, content, pageindex, pagesize, vue}) => {
   http.post({
-    url: '/Manager/ChannelCommAudit/GetChannelConmmListByChannelId?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {channel_id, liveid, content, pageindex, pagesize},
     succ (json) {
       if (json.result === 1) {
@@ -59,7 +59,7 @@ export const fetchGetChannelConmmList = ({ commit }, {channel_id, liveid, conten
 // deleteMsg 删除评论
 export const deleteMsg = ({ commit }, {channel_id, msgids, vue}) => {
   http.post({
-    url: '/Manager/ChannelCommAudit/DeleteChannelConmm?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {channel_id, msgids},
     succ (json) {
       if (json.result === 1) {
@@ -80,7 +80,7 @@ export const deleteMsg = ({ commit }, {channel_id, msgids, vue}) => {
 // ShieldUser
 export const ShieldUser = ({ commit }, {uid, reason, vue}) => {
   http.get({
-    url: '/Manager/User/ShieldUser?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {uid, reason},
     succ (json) {
       if (json.result === 1) {
@@ -98,20 +98,3 @@ export const ShieldUser = ({ commit }, {uid, reason, vue}) => {
     }
   })
 }
-// 新增AddLiveConfigInfo
-// export const AddLiveConfigInfo = ({ commit }, {value, type, vue}) => {
-//   http.post({
-//     url: '/Manager/Live/AddLiveConfigInfo?v=' + Math.random(),
-//     data: {value, type},
-//     succ (json) {
-//       if (json.result === 1) {
-//         vue.loadmsg()
-//       } else {
-//         vue.$notify.error({
-//           title: '失败',
-//           message: json.message
-//         })
-//       }
-//     }
-//   })
-// }

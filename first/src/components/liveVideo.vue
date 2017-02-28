@@ -9,7 +9,6 @@
     poster="//vjs.zencdn.net/v/oceans.png"
     preload="auto"
     >
-  <!-- <source src="rtmp://3992.liveplay.myqcloud.com/live/3992_22776" type="rtmp/flv"/> -->
   <!-- <source src="//vjs.zencdn.net/v/oceans.mp4" type="video/mp4"></source> -->
 </video>
 <el-button @click="close">取 消</el-button>
@@ -49,7 +48,7 @@
             // console.log(players)
             // players.src({
             //   type:"rtmp/flv",
-            //   src: 'rtmp://3992.liveplay.myqcloud.com/live/3992_22776',
+            //   src: '',
             //   width: '320px',
             //   height: '640px'
             // })
@@ -61,7 +60,7 @@
           // console.log(player)
           // player.src({
           //   type:"rtmp/flv",
-          //   src: 'rtmp://3992.liveplay.myqcloud.com/live/3992_22776',
+          //   src: '',
           //   width: '320px',
           //   height: '640px'
           // })
@@ -84,7 +83,7 @@
       getrtmp () {
         let _this = this
         http.get({
-          url: '/Operation/room/GetUserChannelInfo?v=' + Math.random(),
+          url: '?v=' + Math.random(),
           data: {channel_id: _this.channel},
           succ (json) {
             if (json.result === 1) {
@@ -99,7 +98,7 @@
                 player.ready(function() {  
                   // playerInitVideo();  
                     player.play();  
-                    //setsrc(player,"rtmp://192.168.30.21/live/test3","rtmp/flv");  
+                    //setsrc(player,"","rtmp/flv");  
                 }); 
             } else {
             }
@@ -118,16 +117,16 @@
       // console.log(player)
       // player.src({
       //   type:"rtmp/flv",
-      //   src: 'rtmp://3992.liveplay.myqcloud.com/live/3992_22776',
+      //   src: '',
       //   width: '320px',
       //   height: '640px'
       // })
       // player.ready(function() {  
       //   // playerInitVideo();  
       //     player.play();  
-      //     //setsrc(player,"rtmp://192.168.30.21/live/test3","rtmp/flv");  
+      //     //setsrc(player,"","rtmp/flv");  
       // }); 
-      // setsrc(player, 'rtmp://2519.liveplay.myqcloud.com/live/2519_1269029', 'rtmp/flv') 
+      // setsrc(player, '', 'rtmp/flv') 
     }
   }
 </script>

@@ -58,32 +58,6 @@ export const SET_TITLE = (txt) => {
   } catch (e) {
   }
 }
-/*
-打开我的主页
-*/
-export const OPEN_LIVE_ME = () => {
-  var s = 'emlive://haitunlive.com/home?page=home_me'
-  var a = 'emlive://haitunlive.com/first?params={"destClass":"home","page":"home_me"}'
-  eventOpenLive(s, a)
-}
-
-/*
-打开直播
-*/
-export const OPEN_LIVE = () => { // 发布直播页面
-  var s6 = 'emlive://jinyuzhibo.com/liverelease'
-  var a6 = 'emlive://haitunlive.com/first?params={"destClass":"live","segueParams":{"channelLocation":"xx.x,yy.y","extraLiveType":0}}'
-  eventOpenLive(s6, a6)
-}
-
-/*
-跳直播
-*/
-export const OPEN_LIVE_BYID = (channelId) => { // 跳直播
-  var s5 = 'emlive://jinyuzhibo.com/live?channel_id=' + channelId + '&extra_live_type=1'
-  var a5 = 'emlive://haitunlive.com/first?params={"destClass":"live","segueParams":{"channelId":"' + channelId + '","extraLiveType":1}}'
-  eventOpenLive(s5, a5)
-}
 
 /*
 显示分享
@@ -106,31 +80,6 @@ export const UPLOAD_FILE = ({url, autoCamera, succ}) => {
 
 /* eslint-disable */
 
-function eventOpenLive(s, a) {
-  if (IS_IOS) {
-    var iosstr = '{"callbackname":"callbackOpen","appname":"haitunlive://","scheme":"' + s + '"}'
-    window.location = "emH5toOpenApp:" + iosstr
-  } else {
-
-    var bytes = a.split('params=')
-    bytes[1] = encodeURIComponent(base64encode(bytes[1]))
-    var userAgent = navigator.userAgent.toLowerCase()
-    var appname = 'com.eastmoney.haitunlive'
-    // if (userAgent.indexOf("eastmoney_eastmoney") != -1 || userAgent.indexOf("eastmoney_android") != -1) {
-    //   appname = "com.eastmoney.android.berlin"
-    // } else if (userAgent.indexOf("eastmoney_guba") != -1) {
-    //   appname = "com.eastmoney.android.gubaproj"
-    // }
-    // else if (userAgent.indexOf("eastmoney_cjtt") != -1) {
-    //   appname = "com.eastmoney.android.tokyo"
-    // }
-    // else if (userAgent.indexOf("eastmoney_emlive") != -1 || userAgent.indexOf("eastmoney_live") != -1) {
-    //   appname = "com.eastmoney.haitunlive"
-    // }
-    var androidstr = '{"callbackname":"callbackOpen","appname":"' + appname + '","scheme":"' + bytes[0] + 'params=' + bytes[1] + '","isLocal":"false"}';
-    eastmoney.emH5toOpenApp(androidstr)
-  }
-}
 
 
 
@@ -174,18 +123,6 @@ function base64encode(str) {
     out += base64EncodeChars.charAt(c3 & 0x3F);
   }
   return out;
-}
-
-
-window.callbackOpen = function (returnValue){
-  var str = JSON.parse(returnValue)
-  if (str.code != "0") {
-    if (IS_IOS) {
-
-    } else {
-      window.location.href='http://zhibo.eastmoney.com/'
-    }
-  }
 }
 
 

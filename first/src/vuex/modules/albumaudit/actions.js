@@ -3,7 +3,7 @@ import * as http from '../../../utils/common'
 // 加载
 export const getAlbumLoadList = ({ commit }, {pi, ps, vue}) => {
   http.get({
-    url: '/Manager/PhotoAlbumAudit/GetListForCheck?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {pi, ps},
     succ (json) {
       if (json.rc === 1) {
@@ -23,7 +23,7 @@ export const getAlbumLoadList = ({ commit }, {pi, ps, vue}) => {
 // 搜索
 export const getAlbumSearchList = ({ commit }, {uid, vue}) => {
   http.get({
-    url: '/Manager/PhotoAlbumAudit/GetUserPhotoAlbum?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {uid},
     succ (json) {
       if (json.rc === 1) {
@@ -46,7 +46,7 @@ export const getAlbumSearchList = ({ commit }, {uid, vue}) => {
 // 当页全部通过/manager/PhotoAlbumAudit/CheckPass?ids=1,2,3
 export const getAlbumAdopt = ({ commit }, {ids, vue}) => {
   http.get({
-    url: '/Manager/PhotoAlbumAudit/CheckPass?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {ids},
     succ (json) {
       if (json.rc === 1) {
@@ -70,7 +70,7 @@ export const getAlbumAdopt = ({ commit }, {ids, vue}) => {
 // 重置
 export const getAlbumReset = ({ commit }, {ids, vue}) => {
   http.get({
-    url: '/Manager/PhotoAlbumAudit/CheckDelete?v=' + Math.random(),
+    url: '?v=' + Math.random(),
     data: {ids},
     succ (json) {
       if (json.rc === 1) {

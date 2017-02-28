@@ -22,13 +22,6 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/Manager': {
-            target: 'http://lvbqas.eastmoney.com:8003',
-            changeOrigin: true,
-            pathRewrite: {
-              '^/Manager': '/Manager'
-            }
-        }
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
