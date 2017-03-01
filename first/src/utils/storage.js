@@ -1,5 +1,5 @@
 /**
- * Created by daijiawei on 2016/10/30.
+ * 
  */
 
 export const session = {
