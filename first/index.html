@@ -14,4 +14,35 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script type="text/javascript">
+        /*debug模式*/
+    function getQueryString(key){
+      var queryStr = window.location.search.substr(1);
+      var queryArr = queryStr.split('&');
+      for (var k in queryArr) {
+        var queryBunch = queryArr[k];
+        if (queryBunch.indexOf(key + '=') == 0) {
+          return queryBunch.split('=')[1];
+        }
+      }
+    }
+    (function(){ // 解决部分安卓机型rem 计算偏差问题
+      var html = document.getElementsByTagName('html')[0];
+      var settedFs = settingFs = parseInt(html.style.fontSize);
+      var whileCount = 0;
+      while(true) {
+        var realFs = parseInt(window.getComputedStyle(html).fontSize);
+        var delta = realFs - settedFs;
+        if (Math.abs(delta) >= 1)
+        {
+          if (delta > 0) settingFs--; else settingFs++;
+          console.log(settedFs)
+          html.setAttribute('style', 'font-size:'+settingFs + 'px!important');
+        } else {
+          break;
+        }
+        if (whileCount++ > 100) break ;
+      }
+    })()
+  </script>
 </html>
